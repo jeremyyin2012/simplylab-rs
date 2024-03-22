@@ -1,7 +1,9 @@
 FROM debian:bullseye
-ADD ./target/release/simplylab /app/
-ADD ./Rocket.toml /app/
 
 WORKDIR /app/
+
+ADD ./target/release/simplylab /app/
+ADD ./Rocket.toml /app/
+ADD .env /app
 
 CMD ["./simplylab"]
