@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  simplylab-rs:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    environment:
+      TZ: "Asia/Shanghai"
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
+      LETSENCRYPT_HOST: ${LETSENCRYPT_HOST}
+      LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+    expose:
+      - 8002
+    tty: true
+    stdin_open: true
+    networks:
+      - simplylab
+      - nginx-proxy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "2m"
+        max-file: "10"
+
+networks:
+  simplylab:
+  nginx-proxy:
+    external:
+      name: nginx-proxy_default

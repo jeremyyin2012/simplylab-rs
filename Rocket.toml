@@ -1,0 +1,11 @@
+[default]
+address = "0.0.0.0"
+
+[debug]
+port = 8002
+workers = 2
+log_level = "debug"
+
+[release]
+port = 8002
+workers = 4

@@ -1,0 +1,4 @@
+/target/debug/.fingerprint
+/target/release/.fingerprint
+.idea
+*.DS_Store
